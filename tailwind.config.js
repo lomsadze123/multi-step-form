@@ -5,7 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      backgroundImage: {
+        SideBarMobile: "url('assets/bg-sidebar-mobile.svg')",
+        SideBarDesktop: "url('assets/bg-sidebar-desktop.svg')",
+      }
+    },
   },
   plugins: [],
 }

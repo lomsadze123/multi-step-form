@@ -5,17 +5,17 @@ import Plan from "./components/Plan";
 import AddOns from "./components/AddOns";
 import Summary from "./components/Summary";
 import Thanks from "./components/Thanks";
+import AsideForm from "./components/AsideForm";
 
 function App() {
-  const form = useForm();
-  const { register } = form;
+  const { register } = useForm();
   const { name, ref, onChange, onBlur } = register("username");
 
   console.log(name);
 
   return (
     <>
-      <h1 className="text-red-500">Hello</h1>
+      <AsideForm />
       <Routes>
         <Route path="/" element={<Forms />} />
         <Route path="/plan" element={<Plan />} />
