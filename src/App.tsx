@@ -7,14 +7,24 @@ import Summary from "./components/Summary";
 import Thanks from "./components/Thanks";
 import AsideForm from "./components/AsideForm";
 
-function App() {
-  const { register } = useForm();
-  const { name, ref, onChange, onBlur } = register("username");
+// type FormValue = {
+//   username: string;
+//   email: string;
+//   channel: string;
+// };
 
-  console.log(name);
+function App() {
+  // const { register, handleSubmit } = useForm<FormValue>();
+
+  // const onSubmit = (data: FormValue) => {
+  //   console.log("submitted", data);
+  // };
 
   return (
     <>
+      {/* <form onSubmit={handleSubmit(onSubmit)}>
+        <input type="text" {...register("username")} />
+      </form> */}
       <AsideForm />
       <Routes>
         <Route path="/" element={<Forms />} />

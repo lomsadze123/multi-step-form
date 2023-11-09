@@ -6,3 +6,24 @@ body {
   font-family: "Ubuntu", sans-serif;
   background-color: #eff5ff;
 }
+
+h1,
+li,
+h4 {
+  font-weight: 700;
+}
+
+input::placeholder,
+h2,
+h3 {
+  font-weight: 500;
+}
+
+.active {
+  background-color: #bee2fd;
+  color: #022959;
+}
+
+.grids {
+  grid-template-columns: 0.5fr 4fr 1fr;
+}
