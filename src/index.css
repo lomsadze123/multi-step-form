@@ -27,3 +27,12 @@ h3 {
 .grids {
   grid-template-columns: 0.5fr 4fr 1fr;
 }
+
+@media (min-width: 768px) {
+  body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}

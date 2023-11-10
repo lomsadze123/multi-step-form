@@ -21,7 +21,7 @@ function App() {
   // };
 
   return (
-    <>
+    <div className="md:flex md:items-center md:gap-[100px] md:bg-white md:p-4 rounded-[15px]">
       {/* <form onSubmit={handleSubmit(onSubmit)}>
         <input type="text" {...register("username")} />
       </form> */}
@@ -33,7 +33,7 @@ function App() {
         <Route path="/summary" element={<Summary />} />
         <Route path="/thanks" element={<Thanks />} />
       </Routes>
-    </>
+    </div>
   );
 }
 

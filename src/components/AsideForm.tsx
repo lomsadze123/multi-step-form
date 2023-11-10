@@ -3,7 +3,7 @@ import SideBarObj from "./Objects";
 
 const AsideForm = () => {
   return (
-    <ul className="bg-SideBarMobile bg-cover h-[172px] text-center">
+    <ul className="bg-SideBarMobile bg-cover h-[172px] text-center md:bg-SideBarDesktop md:h-[568px]">
       {SideBarObj.map((items) => (
         <li key={items.id} className="inline-block">
           <NavLink

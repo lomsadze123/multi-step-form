@@ -1,6 +1,6 @@
 const Forms = () => {
   return (
-    <div className="bg-white mx-4 rounded-[10px] py-8 px-6 mt-[-74px] shadow-custom">
+    <div className="bg-white mx-4 rounded-[10px] py-8 px-6 mt-[-74px] shadow-custom md:m-0 md:shadow-none md:rounded-none md:p-0">
       <h1 className="text-Denim text-2xl">Personal info</h1>
       <p className="text-Grey text-base mt-[9px] mb-[22px]">
         Please provide your name, email address, and phone number.
