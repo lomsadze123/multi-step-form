@@ -11,16 +11,17 @@ const Plan = () => {
   };
 
   return (
-    <div className="bg-white mx-4 rounded-[10px] py-8 px-6 mt-[-74px] shadow-custom">
-      <h1 className="text-Denim text-2xl">Select your plan</h1>
-      <p className="text-Grey text-base mt-[9px] mb-[22px]">
+    <div className="bg-white mx-4 rounded-[10px] py-8 px-6 mt-[-74px] shadow-custom md:mx-0 md:mt-10 md:shadow-none md:rounded-none md:p-0 md:pr-[84px]">
+      <h1 className="text-Denim text-2xl md:text-[32px]">Select your plan</h1>
+      <p className="text-Grey text-base mt-[9px] mb-[22px] md:mt-[11px] md:mb-[35px]">
         You have the option of monthly or yearly billing.
       </p>
-      <div className="flex flex-col gap-3">
+      <div className="flex flex-col gap-3 md:flex-row md:max-w-[450px]">
         {PlanObj.map((items) => (
           <div
             key={items.id}
-            className="flex items-center gap-[14px] border-[#D6D9E6] rounded-lg border-[1px] pt-[14px] pb-[18px] pl-4"
+            className="flex items-center gap-[14px] border-[#D6D9E6] rounded-lg border-[1px] pt-[14px] pb-[18px] pl-4 md:grid
+            md:items-start md:py-5 md:w-[12.188vw] md:pr-9"
           >
             <img
               src={images[items.name]}

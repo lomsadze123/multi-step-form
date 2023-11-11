@@ -6,6 +6,7 @@ import AddOns from "./components/AddOns";
 import Summary from "./components/Summary";
 import Thanks from "./components/Thanks";
 import AsideForm from "./components/AsideForm";
+import NextButton from "./components/NextButton";
 
 // type FormValue = {
 //   username: string;
@@ -21,7 +22,7 @@ function App() {
   // };
 
   return (
-    <div className="md:flex md:items-center md:gap-[100px] md:bg-white md:p-4 rounded-[15px]">
+    <div className="md:grid md:grid-flow-col grid2 md:items-start md:gap-[100px] md:bg-white md:p-4 rounded-[15px] md:shadow-custom md:max-w-[940px] relative">
       {/* <form onSubmit={handleSubmit(onSubmit)}>
         <input type="text" {...register("username")} />
       </form> */}
@@ -33,6 +34,7 @@ function App() {
         <Route path="/summary" element={<Summary />} />
         <Route path="/thanks" element={<Thanks />} />
       </Routes>
+      <NextButton />
     </div>
   );
 }

@@ -36,3 +36,7 @@ h3 {
     align-items: center;
   }
 }
+
+.grid2 {
+  grid-template-columns: 274px 1fr;
+}

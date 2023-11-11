@@ -2,7 +2,7 @@ import thanks from "../assets/icon-thank-you.svg";
 
 const Thanks = () => {
   return (
-    <div className="bg-white mx-4 rounded-[10px] py-[79px] px-6 mt-[-74px] shadow-custom text-center">
+    <div className="bg-white mx-4 rounded-[10px] py-[79px] px-6 mt-[-74px] shadow-custom text-center md:m-0 md:shadow-none md:rounded-none md:p-0">
       <img
         src={thanks}
         alt="thanks icon"
