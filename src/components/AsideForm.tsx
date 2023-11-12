@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import SideBarObj from "./Objects";
 
-const AsideForm = () => {
+const AsideForm = ({ complete }: { complete: boolean }) => {
   return (
     <ul className="bg-SideBarMobile bg-cover h-[172px] text-center md:text-start md:bg-SideBarDesktop md:h-[568px] md:flex md:flex-col md:gap-8 md:pt-10 md:pl-8">
       {SideBarObj.map((items) => (

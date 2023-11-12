@@ -21,7 +21,7 @@ const Plan = () => {
           <div
             key={items.id}
             className="flex items-center gap-[14px] border-[#D6D9E6] rounded-lg border-[1px] pt-[14px] pb-[18px] pl-4 md:grid
-            md:items-start md:py-5 md:w-[12.188vw] md:pr-9"
+            md:items-start md:py-5 md:w-[12.188vw] md:pr-9 cursor-pointer"
           >
             <img
               src={images[items.name]}
@@ -38,6 +38,7 @@ const Plan = () => {
       <div className="flex justify-center items-center gap-6 bg-[#F8F9FF] mt-6 pt-[13px] pb-[14px]">
         <h3 className="text-Denim text-sm">Monthly</h3>
         <svg
+          className="cursor-pointer"
           xmlns="http://www.w3.org/2000/svg"
           width="38"
           height="20"

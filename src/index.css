@@ -15,7 +15,8 @@ h4 {
 
 input::placeholder,
 h2,
-h3 {
+h3,
+button {
   font-weight: 500;
 }
 

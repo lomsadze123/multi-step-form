@@ -12,13 +12,13 @@ const AddOns = () => {
           <label
             htmlFor={items.name}
             key={items.id}
-            className="grid grid-flow-col items-center gap-4 grids border-[#D6D9E6] rounded-lg border-[1px] pt-[14px] pb-[18px] px-4 md:px-6 md:w-[42.8vw] md:max-w-[450px]"
+            className="grid grid-flow-col items-center gap-4 grids border-[#D6D9E6] rounded-lg border-[1px] pt-[14px] pb-[18px] px-4 md:px-6 md:w-[42.8vw] md:max-w-[450px] cursor-pointer"
           >
             <input
               type="checkbox"
               id={items.name}
               className="appearance-none color-black w-5 h-5 border-[1px] border-[#D6D9E6] rounded checked:bg-[#483EFF] checked:after:content-['✔']
-              checked:after:text-white checked:after:ml-[3px] checked:after:relative checked:after:top-[-2.5px]"
+              checked:after:text-white checked:after:ml-[3px] checked:after:relative checked:after:top-[-2.5px] cursor-pointer"
             />
             <div>
               <h2 className="text-Denim text-base">{items.name}</h2>
