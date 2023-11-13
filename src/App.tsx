@@ -19,6 +19,7 @@ function App() {
   const { register, handleSubmit, formState } = useForm<FormValue>();
   const { errors } = formState;
   const [complete, setComplete] = useState(false);
+  const [click, setClick] = useState(false);
 
   return (
     <div className="md:grid md:grid-flow-col grid2 md:items-start md:gap-[100px] md:bg-white md:p-4 rounded-[15px] md:shadow-custom md:max-w-[940px] relative">
@@ -35,9 +36,15 @@ function App() {
             />
           }
         />
-        <Route path="/plan" element={<Plan />} />
-        <Route path="/add-ons" element={<AddOns />} />
-        <Route path="/summary" element={<Summary />} />
+        <Route
+          path="/plan"
+          element={<Plan setClick={setClick} click={click} />}
+        />
+        <Route path="/add-ons" element={<AddOns click={click} />} />
+        <Route
+          path="/summary"
+          element={<Summary setClick={setClick} click={click} />}
+        />
         <Route path="/thanks" element={<Thanks />} />
       </Routes>
       <NextButton error={Object.keys(errors).length} />

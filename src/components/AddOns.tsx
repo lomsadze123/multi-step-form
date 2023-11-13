@@ -1,6 +1,15 @@
+import { useState } from "react";
 import { AddOnsObj } from "./Objects";
 
-const AddOns = () => {
+const AddOns = ({ click }: { click: boolean }) => {
+  const [choose, setChoose] = useState([false, false, false]);
+
+  const handleChoose = (e: any) => {
+    if (e.target.checked) {
+      setChoose([]);
+    }
+  };
+
   return (
     <div className="bg-white mx-4 rounded-[10px] py-8 px-6 mt-[-74px] shadow-custom md:mx-0 md:mt-10 md:shadow-none md:rounded-none md:p-0 md:pr-[84px]">
       <h1 className="text-Denim text-2xl md:text-[32px]">Pick add-ons</h1>
@@ -8,11 +17,15 @@ const AddOns = () => {
         Add-ons help enhance your gaming experience.
       </p>
       <div className="flex flex-col gap-3">
-        {AddOnsObj.map((items) => (
+        {AddOnsObj.map((items, index) => (
           <label
+            onClick={(e) => handleChoose(e)}
             htmlFor={items.name}
             key={items.id}
-            className="grid grid-flow-col items-center gap-4 grids border-[#D6D9E6] rounded-lg border-[1px] pt-[14px] pb-[18px] px-4 md:px-6 md:w-[42.8vw] md:max-w-[450px] cursor-pointer"
+            className={`grid grid-flow-col items-center gap-4 grids border-[#D6D9E6] rounded-lg border-[1px] pt-[14px] pb-[18px] px-4 md:px-6 md:w-[42.8vw]
+            md:max-w-[450px] cursor-pointer ${
+              choose[index] ? "border-red-500" : "border-[#D6D9E6]"
+            }`}
           >
             <input
               type="checkbox"
@@ -27,7 +40,8 @@ const AddOns = () => {
               </p>
             </div>
             <p className="text-[#483EFF] text-xs md:text-[15px]">
-              +${items.price}/mo
+              +${items.price}
+              {click && 0}/{click ? "yr" : "mo"}
             </p>
           </label>
         ))}

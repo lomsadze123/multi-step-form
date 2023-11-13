@@ -2,12 +2,24 @@ import { PlanObj } from "./Objects";
 import arcade from "../assets/icon-arcade.svg";
 import advanced from "../assets/icon-advanced.svg";
 import pro from "../assets/icon-pro.svg";
+import { useState } from "react";
 
-const Plan = () => {
+const Plan = ({
+  click,
+  setClick,
+}: {
+  click: boolean;
+  setClick: (click: boolean) => void;
+}) => {
   const images: { [key: string]: string } = {
     Arcade: arcade,
     Advanced: advanced,
     Pro: pro,
+  };
+
+  const [choose, setChoose] = useState(-1);
+  const handleChoose = (index: number) => {
+    setChoose(index);
   };
 
   return (
@@ -17,11 +29,14 @@ const Plan = () => {
         You have the option of monthly or yearly billing.
       </p>
       <div className="flex flex-col gap-3 md:flex-row md:max-w-[450px]">
-        {PlanObj.map((items) => (
+        {PlanObj.map((items, index) => (
           <div
+            onClick={() => handleChoose(index)}
             key={items.id}
-            className="flex items-center gap-[14px] border-[#D6D9E6] rounded-lg border-[1px] pt-[14px] pb-[18px] pl-4 md:grid
-            md:items-start md:py-5 md:w-[12.188vw] md:pr-9 cursor-pointer"
+            className={`flex items-center gap-[14px]  rounded-lg border-[1px] pt-[14px] pb-[18px] pl-4 md:grid
+            md:items-start md:py-5 md:w-[12.188vw] md:pr-9 cursor-pointer ${
+              index === choose ? "border-red-700 " : "border-[#D6D9E6]"
+            }`}
           >
             <img
               src={images[items.name]}
@@ -30,7 +45,10 @@ const Plan = () => {
             />
             <div>
               <h2 className="text-Denim text-base">{items.name}</h2>
-              <p className="text-Grey text-sm mt-1">${items.price}/mo</p>
+              <p className="text-Grey text-sm mt-1">
+                ${items.price}
+                {click && 0}/{click ? "yr" : "mo"}
+              </p>
             </div>
           </div>
         ))}
@@ -38,6 +56,7 @@ const Plan = () => {
       <div className="flex justify-center items-center gap-6 bg-[#F8F9FF] mt-6 pt-[13px] pb-[14px]">
         <h3 className="text-Denim text-sm">Monthly</h3>
         <svg
+          onClick={() => setClick(!click)}
           className="cursor-pointer"
           xmlns="http://www.w3.org/2000/svg"
           width="38"
@@ -46,7 +65,13 @@ const Plan = () => {
           fill="none"
         >
           <rect width="38" height="20" rx="10" fill="#022959" />
-          <circle cx="10" cy="10" r="6" fill="white" />
+          <circle
+            className="transition-all"
+            cx={click ? 28 : 10}
+            cy="10"
+            r="6"
+            fill="white"
+          />
         </svg>
         <h3 className="text-Grey text-sm">Yearly</h3>
       </div>
