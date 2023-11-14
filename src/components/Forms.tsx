@@ -4,17 +4,14 @@ interface FormProps {
   register: object;
   handleSubmit: any;
   errors: object;
-  setComplete: (complete: boolean) => void;
 }
 const Forms: React.FC<FormProps> = ({
   register,
   handleSubmit,
   errors,
-  setComplete,
 }: any) => {
   const onSubmit = (data: FormValue) => {
     console.log("good", data);
-    setComplete(true);
   };
 
   return (

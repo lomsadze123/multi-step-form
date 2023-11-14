@@ -16,14 +16,13 @@ export type FormValue = {
 };
 
 function App() {
-  const { register, handleSubmit, formState } = useForm<FormValue>();
+  const { register, handleSubmit, formState, getValues } = useForm<FormValue>();
   const { errors } = formState;
-  const [complete, setComplete] = useState(false);
   const [click, setClick] = useState(false);
 
   return (
     <div className="md:grid md:grid-flow-col grid2 md:items-start md:gap-[100px] md:bg-white md:p-4 rounded-[15px] md:shadow-custom md:max-w-[940px] relative">
-      <AsideForm complete={complete} />
+      <AsideForm />
       <Routes>
         <Route
           path="/"
@@ -32,7 +31,6 @@ function App() {
               register={register}
               handleSubmit={handleSubmit}
               errors={errors}
-              setComplete={setComplete}
             />
           }
         />
@@ -47,7 +45,7 @@ function App() {
         />
         <Route path="/thanks" element={<Thanks />} />
       </Routes>
-      <NextButton error={Object.keys(errors).length} />
+      <NextButton error={Object.keys(errors).length} getValues={getValues} />
     </div>
   );
 }

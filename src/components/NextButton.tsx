@@ -2,17 +2,34 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SideBarObj from "../components/Objects";
 
-const NextButton = ({ error }: { error: number }) => {
+const NextButton = ({
+  error,
+  getValues,
+}: {
+  error: number;
+  getValues: any;
+}) => {
   const location = useLocation();
   const navigate = useNavigate();
   const [next, setNext] = useState("");
+  const values = getValues();
+
+  const check =
+    values.name !== "" && values.email !== "" && values.number !== "";
+
+  console.log(check);
 
   useEffect(() => {
     const currentIndex = SideBarObj.findIndex(
       (item) => item.route === location.pathname
     );
-    error === 0 && setNext(SideBarObj[currentIndex + 1]?.route || "thanks");
-  }, [location.pathname]);
+
+    if (error <= 0 && values.name !== undefined && check) {
+      setNext(SideBarObj[currentIndex + 1]?.route || "thanks");
+    } else {
+      setNext("");
+    }
+  }, [location.pathname, error, check, values]);
 
   return (
     location.pathname !== "/thanks" && (
