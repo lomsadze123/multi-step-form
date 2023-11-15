@@ -15,6 +15,7 @@ interface Types {
 }
 
 const AddOns = ({ click, checked, setChecked }: Types) => {
+  console.log(checked);
   const handleChoose = (e: any, index: number) => {
     setChecked((prevChecked) => ({
       ...prevChecked,
@@ -33,7 +34,7 @@ const AddOns = ({ click, checked, setChecked }: Types) => {
             onClick={(e) => handleChoose(e, index)}
             htmlFor={items.name}
             key={items.id}
-            className={`grid grid-flow-col items-center gap-4 grids border-[#D6D9E6] rounded-lg border-[1px] pt-[14px] pb-[18px] px-4 md:px-6 md:w-[42.8vw]
+            className={`grid grid-flow-col items-center gap-4 grids rounded-lg border-[1px] pt-[14px] pb-[18px] px-4 md:px-6 md:w-[42.8vw]
             md:max-w-[450px] cursor-pointer hover:border-[#483EFF] ${
               checked[index]
                 ? "border-[#483EFF] bg-[#F8F9FF]"
