@@ -1,4 +1,4 @@
-import { FormValue } from "../App";
+import { useNavigate } from "react-router-dom";
 
 interface FormProps {
   register: object;
@@ -10,8 +10,13 @@ const Forms: React.FC<FormProps> = ({
   handleSubmit,
   errors,
 }: any) => {
-  const onSubmit = (data: FormValue) => {
-    console.log("good", data);
+  const navigate = useNavigate();
+  const onSubmit = () => {
+    navigate("/plan");
+  };
+
+  const validatePhoneNumber = (value: string) => {
+    return value.startsWith("+") && value.length === 11;
   };
 
   return (
@@ -75,7 +80,7 @@ const Forms: React.FC<FormProps> = ({
           />
           <br />
         </label>
-        {errors.number && (
+        {errors.number && errors.number.message && (
           <h4 className="text-red-500 text-right mb-[-30px]">
             {errors.number.message}
           </h4>
@@ -86,11 +91,26 @@ const Forms: React.FC<FormProps> = ({
             className={`border-[#D6D9E6] bg-white rounded md:rounded-lg border-[1px] text-[15px] py-3 pl-4 w-full mt-[3px] outline-none focus:border-[#483EFF] ${
               errors.number ? "border-[#EE374A]" : "border-[#D6D9E6]"
             }`}
-            type="number"
+            type="tel"
             id="number"
+            maxLength={11}
+            onKeyDown={(e) => {
+              const x = +e.key;
+              if (
+                Number.isNaN(x) &&
+                e.key !== "Backspace" &&
+                e.key !== "+" &&
+                e.key !== "Enter"
+              ) {
+                e.preventDefault();
+              }
+            }}
             name="number"
             placeholder="e.g. +1 234 567 890"
-            {...register("number", { required: "This field is required" })}
+            {...register("number", {
+              required: "This field is required",
+              validate: validatePhoneNumber,
+            })}
           />
         </label>
         <input type="submit" className="hidden" />

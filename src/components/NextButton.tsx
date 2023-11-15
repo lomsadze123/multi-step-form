@@ -2,22 +2,20 @@ import { useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SideBarObj from "../components/Objects";
 
-const NextButton = ({
-  error,
-  getValues,
-}: {
+interface Types {
   error: number;
   getValues: any;
-}) => {
+}
+
+const NextButton = ({ error, getValues }: Types) => {
+  const [next, setNext] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
-  const [next, setNext] = useState("");
+
   const values = getValues();
 
   const check =
     values.name !== "" && values.email !== "" && values.number !== "";
-
-  console.log(check);
 
   useEffect(() => {
     const currentIndex = SideBarObj.findIndex(
@@ -47,9 +45,17 @@ const NextButton = ({
           </button>
         )}
 
-        <button className="text-white  bg-Denim py-3 hover:bg-[#164A8A] rounded">
+        <button
+          className={`text-white ${
+            location.pathname === "/summary" ? "bg-[#483EFF]" : "bg-Denim"
+          } ${
+            location.pathname === "/summary"
+              ? "hover:bg-[#928CFF]"
+              : "hover:bg-[#164A8A]"
+          } py-3  rounded`}
+        >
           <Link to={next} className="py-3 px-4">
-            Next Step
+            {location.pathname === "/summary" ? "Confirm" : "Next Step"}
           </Link>
         </button>
       </div>

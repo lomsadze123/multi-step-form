@@ -2,14 +2,17 @@ import { PlanObj } from "./Objects";
 import arcade from "../assets/icon-arcade.svg";
 import advanced from "../assets/icon-advanced.svg";
 import pro from "../assets/icon-pro.svg";
-import { useState } from "react";
 
 const Plan = ({
   click,
   setClick,
+  choose,
+  setChoose,
 }: {
   click: boolean;
   setClick: (click: boolean) => void;
+  choose: number;
+  setChoose: (choose: number) => void;
 }) => {
   const images: { [key: string]: string } = {
     Arcade: arcade,
@@ -17,7 +20,6 @@ const Plan = ({
     Pro: pro,
   };
 
-  const [choose, setChoose] = useState(-1);
   const handleChoose = (index: number) => {
     setChoose(index);
   };
@@ -33,9 +35,11 @@ const Plan = ({
           <div
             onClick={() => handleChoose(index)}
             key={items.id}
-            className={`flex items-center gap-[14px]  rounded-lg border-[1px] pt-[14px] pb-[18px] pl-4 md:grid
-            md:items-start md:py-5 md:w-[12.188vw] md:pr-9 cursor-pointer ${
-              index === choose ? "border-red-700 " : "border-[#D6D9E6]"
+            className={`flex items-center gap-[14px] md:gap-[39px] rounded-lg border-[1px] pt-[14px] pb-[18px] pl-4 md:grid
+            md:items-start md:py-5 md:w-[12.188vw] md:pr-9 cursor-pointer hover:border-[#483EFF] ${
+              index === choose
+                ? "border-[#483EFF] bg-[#F8F9FF]"
+                : "border-[#D6D9E6]"
             }`}
           >
             <img
