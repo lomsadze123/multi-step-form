@@ -5,9 +5,10 @@ import SideBarObj from "../components/Objects";
 interface Types {
   error: number;
   getValues: any;
+  trigger: any;
 }
 
-const NextButton = ({ error, getValues }: Types) => {
+const NextButton = ({ error, getValues, trigger }: Types) => {
   const [next, setNext] = useState("");
   const location = useLocation();
   const navigate = useNavigate();
@@ -54,7 +55,7 @@ const NextButton = ({ error, getValues }: Types) => {
               : "hover:bg-[#164A8A]"
           } py-3  rounded`}
         >
-          <Link to={next} className="py-3 px-4">
+          <Link onClick={() => trigger()} to={next} className="py-3 px-4">
             {location.pathname === "/summary" ? "Confirm" : "Next Step"}
           </Link>
         </button>

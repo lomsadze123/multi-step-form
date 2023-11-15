@@ -16,7 +16,8 @@ export type FormValue = {
 };
 
 function App() {
-  const { register, handleSubmit, formState, getValues } = useForm<FormValue>();
+  const { register, handleSubmit, formState, getValues, trigger } =
+    useForm<FormValue>();
   const { errors } = formState;
   const [choose, setChoose] = useState(0);
   const [click, setClick] = useState(false);
@@ -66,7 +67,11 @@ function App() {
         />
         <Route path="/thanks" element={<Thanks />} />
       </Routes>
-      <NextButton error={Object.keys(errors).length} getValues={getValues} />
+      <NextButton
+        error={Object.keys(errors).length}
+        getValues={getValues}
+        trigger={trigger}
+      />
     </div>
   );
 }
