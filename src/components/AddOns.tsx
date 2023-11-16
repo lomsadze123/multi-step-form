@@ -15,7 +15,6 @@ interface Types {
 }
 
 const AddOns = ({ click, checked, setChecked }: Types) => {
-  console.log(checked);
   const handleChoose = (e: any, index: number) => {
     setChecked((prevChecked) => ({
       ...prevChecked,
